@@ -1,17 +1,17 @@
 /******************************************************************
- *File Name : employe.controller.js
+ *File Name : user.controller.js
  *Author : Sudhakar Jha
- *Project Name : projman
- *Date : Tuesday, Jan 17th, 2023
+ *Project Name : sendtune
+ *Date : Tuesday, Jan 21th, 2023
  *Description : Admin Auth Conytroller
- *Copyrights : All rights reserved by antiersolutions.com
+ *Copyrights : All rights reserved by sendtune.in
  *******************************************************************/
 const db = require("../../db");
 const async = require("async");
 //  const { v4: uuidv4 } = require("uuid");
-const EmployeModel = require("../../models/employe.model");
+const UserModel = require("../../models/user.model");
 // const UserModel = require("../../models/user.model");
-const EmployeProperty = require("./user.property");
+const UserProperty = require("./user.property");
 const TokenHandler = require('../../middlewares/jwt.middleware');
 // import * as bcrypt from 'bcrypt';
 const bcrypt = require("bcrypt");
@@ -45,7 +45,7 @@ exports.login = (req, res) => {
         function (next) {
           const { email, password } = req.reqBody;
           console.log("reqqqq:::::::::::::::;", req.reqBody)
-          EmployeProperty.validateEmployeWithEmailPassword(email, password)
+          UserProperty.validateUserWithEmailPassword(email, password)
             .then((userInfo) => {
               if (!userInfo.error) {
                 next(null, userInfo);
@@ -65,7 +65,7 @@ exports.login = (req, res) => {
           });
         },
         (token, user, next) => {
-          EmployeModel.update(
+          UserModel.update(
             {
               token: token.data,
             },
@@ -114,14 +114,14 @@ exports.logOut = (req, res) => {
       [
         function (next) {
           const { email } = req.reqBody;
-          EmployeProperty.getAdminByEmail(email)
+          UserProperty.getAdminByEmail(email)
             .then((userInfo) => {
             
               console.log("userInfouserInfo", userInfo.data)
               if (userInfo.error) {
                 next(null, userInfo);
               }
-              EmployeModel.update(
+              UserModel.update(
                 {
                   token: null,
                 },
@@ -217,12 +217,12 @@ exports.addUser = (req, res) => {
         function (next) {
           const password = 'admin@123';
           const { username, empId, name, email, projects, designation, TL, role, isActive } = req.reqBody;
-          EmployeProperty.getUserByEmpid(empId).then((userInfo)=>{
+          UserProperty.getUserByEmpid(empId).then((userInfo)=>{
             console.log(userInfo,'userInfo');
             if (userInfo.data !== null) {
               res.sendError("ERR106")
             }else{
-          EmployeProperty.getUserByEmail(email)
+          UserProperty.getUserByEmail(email)
             .then((userInfo) => {
               console.log("userInfouserInfouserInfouserInfouserInfo", userInfo)
               if (userInfo.data !== null) {
@@ -231,7 +231,7 @@ exports.addUser = (req, res) => {
               } else {
                 const salt = bcrypt.genSaltSync(10);
                 const newPassword = bcrypt.hashSync(password, salt);
-                EmployeModel.create({
+                UserModel.create({
                   username: username,
                   password: newPassword,
                   empId: empId,
@@ -283,7 +283,7 @@ exports.getAllUsers = (req, res) => {
             }
             offset = (offset - 1) * limit;
           }
-          EmployeProperty.getAllUser({ limit, offset })
+          UserProperty.getAllUser({ limit, offset })
             .then((data) => {
               res.sendData(data)
             })
@@ -301,7 +301,7 @@ exports.getUserByEmail = (req, res) => {
     async.waterfall([
       function (next) {
         const { email } = req.reqBody;
-        EmployeProperty.getUserByEmail(email)
+        UserProperty.getUserByEmail(email)
           .then((data) => {
             res.sendData(data);
           })

@@ -7,14 +7,14 @@
  *Copyrights : All rights reserved by antiersolutions.com
  *******************************************************************/
 
-const EmployeModel = require("../../models/employe.model");
+const UserModel = require("../../models/user.model");
 const bcrypt = require("bcrypt");
 const sequelize = require('../../db/connection');
 const { QueryTypes } = require('sequelize');
 
-exports.validateEmployeWithEmailPassword = async (email, password) => {
+exports.validateUserWithEmailPassword = async (email, password) => {
   try {
-    const adminInfo = await EmployeModel.findOne({
+    const adminInfo = await UserModel.findOne({
       where: {
         email,
       },
@@ -51,7 +51,7 @@ exports.validateEmployeWithEmailPassword = async (email, password) => {
 
 exports.getAdminByEmail = async (email) => {
   try {
-    const adminInfo = await EmployeModel.findOne({
+    const adminInfo = await UserModel.findOne({
       where: {
         email,
       },
@@ -116,7 +116,7 @@ exports.getAllUser = async ({ limit, offset }) => {
 
 exports.getUserByEmail = async (email) => {
   try {
-    const userInfo = await EmployeModel.findOne({
+    const userInfo = await UserModel.findOne({
       where: {
         email,
       },
@@ -151,7 +151,7 @@ exports.getUserByEmail = async (email) => {
 };
 exports.getUserByEmpid = async (empId) => {
   try {
-    const userInfo = await EmployeModel.findOne({
+    const userInfo = await UserModel.findOne({
       where: {
         empId,
       },
