@@ -1,0 +1,132 @@
+const MESSAGES = {
+  // KKV Messages
+  ADMIN: {
+    SUCCESS: 'User successfully logged in.',
+    ERROR: 'Failed to login.',
+    ALREADY_EXISTS: 'User already exists',
+    DELETED: 'User deleted successfully.',
+    NOT_FOUND: 'User not found',
+  },
+  COLLECTIONS: {
+    SUCCESS: 'Collection created successfully.',
+    ERROR: 'Unable to create collection, Please try again.',
+    ALREADY_EXISTS: 'Collection title already exists',
+    DELETED: 'Collection deleted successfully.',
+    NOT_FOUND: 'Collection not found',
+    FOUND: 'Collection found',
+  },
+  BANNER: {
+    SUCCESS: 'Banner created successfully.',
+    ERROR: 'Unable to create banner, Please try again.',
+    ALREADY_EXISTS: 'Banner title already exists',
+    DELETED: 'Banner deleted successfully.',
+    NOT_FOUND: 'Banner not found',
+    FOUND: 'Banner Found Successfully',
+  },
+  ARTIST: {
+    SUCCESS: 'Artist created successfully.',
+    FETCH: 'Artist fetch successfully',
+    ERROR: 'Unable to create artist, Please try again.',
+    ALREADY_EXISTS: 'Artist title already exists',
+    DELETED: 'Artist deleted successfully.',
+    NOT_FOUND: 'Artist not found',
+    UPDATE: 'Artist Update successfully',
+  },
+  BRAND: {
+    SUCCESS: 'Brand created successfully.',
+    FETCH: 'Brand fetch successfully',
+    ERROR: 'Unable to create brand, Please try again.',
+    ALREADY_EXISTS: 'Brand title already exists',
+    DELETED: 'Brand deleted successfully.',
+    NOT_FOUND: 'Brand not found',
+    UPDATE: 'Brand Update successfully',
+  },
+  BRAND_ARTIST: {
+    REGISTER: {
+      DUPLICATE_EMAIL:
+        'Thank you for signup, We will send you a verification email if your email does not exists in our records.',
+      DUPLICATE_USERNAME: 'Username already taken, Please choose another one',
+      duplicate_user:
+        'Thanks, You will receive a confirmation link, If your email does not exists in our database.',
+      required: 'Required Fields are missing',
+      password_error:
+        'Password must be at least 8 characters and a mix of uppercase, lowercase letter, a number, and 1 special characters($, @, /, …)',
+      success:
+        'Confirmation Email has been sent to you. If not received in Inbox, please check the Spam Folder',
+      WHITE_SPACE: 'White Space is not allowed',
+      SPECIAL_CHAR: 'Password Must Contain One Special character ($, @, /, …)',
+      NUMERIC: 'Password Must Contain One Numeric Value 0-9',
+      UPPER_CASE: 'Password Must Contain One UpperCase Value A-Z',
+      LOWER_CASE: 'Password Must Contain One LowerCase Value a-z',
+      failure: 'Something went wrong! Please try again later',
+      verify_email_error: 'Invalid confirmation link. Please try again.',
+      verify_email_success: 'Email Verified.',
+      verify_email_already: 'Email Already Verified.',
+    },
+  },
+  HEALTH_CHECK: {
+    SUCCESS: 'Admin service is working',
+    ERROR: 'Admin service not working',
+  },
+  LIKES: {
+    SUCCESS: 'Likes created successfully.',
+    ERROR: 'Unable to create likes, Please try again.',
+    ALREADY_EXISTS: 'likes title already exists',
+    DELETED: 'likes deleted successfully.',
+    NOT_FOUND: 'Likes not found',
+  },
+  VIEWS: {
+    SUCCESS: 'Likes created successfully.',
+    ERROR: 'Unable to create likes, Please try again.',
+    ALREADY_EXISTS: 'Likes title already exists',
+    DELETED: 'Likes deleted successfully.',
+    NOT_FOUND: 'Likes not found',
+  },
+  JWT: {
+    ERROR: 'Failed to authenticate user',
+    GENERATE_ERROR: 'Failed to sign jwt token',
+    USER_ID_ERROR: 'Invalid user id',
+    SECRET_ERROR: 'JWT secret missing',
+    EXPIRED: 'Token expired',
+    SUCCESS: 'Success',
+  },
+  PLANS: {
+    SUCCESS: 'Plan created successfully.',
+    UPDATED: 'Plan updated successfully.',
+    ERROR: 'Unable to create plan, Please try again.',
+    ALREADY_EXISTS: 'Plan title already exists',
+    DELETED: 'Plan deleted successfully.',
+    NOT_FOUND: 'Plan not found',
+  },
+  ARTARTIST: {
+    SUCCESS: 'Artartist created successfully.',
+    ERROR: 'Unable to create artartist, Please try again.',
+    FOUND: 'Artartist Found Successfully',
+    DELETED: 'Artartist deleted successfully.',
+    UPDATE: 'Upddated successfully.',
+  },
+  EVENT: {
+    SUCCESS: 'Event created successfully.',
+    ERROR: 'Unable to create event, Please try again.',
+    FOUND: 'Event Found Successfully',
+    DELETED: 'Event deleted successfully.',
+    UPDATE: 'Updated successfully.',
+  },
+  CAMPAIGN: {
+    SUCCESS: 'Campaign created successfully.',
+    UPDATED: 'Campaign updated successfully.',
+    ERROR: 'Unable to create campaign, Please try again.',
+    ALREADY_EXISTS: 'Campaign title already exists',
+    DELETED: 'Campaign deleted successfully.',
+    NOT_FOUND: 'Campaign not found',
+  },
+  ROYALTY: {
+    EMPTY:"Royalty is Empty! Please add Royalty",
+    SUCCESS: 'Royalty added successfully',
+    UPDATED: 'Royalty updated successfully',
+    GET: 'Royalty get successfully',
+    DELETED: 'Royalty deleted successfully',
+  },
+};
+
+module.exports = MESSAGES;

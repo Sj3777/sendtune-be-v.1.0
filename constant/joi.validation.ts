@@ -1,0 +1,11 @@
+export const options = {
+  errors: {
+    wrap: {
+      label: '',
+    },
+  },
+};
+
+export const capitalize = (s: string) => {
+  return s && s[0].toUpperCase() + s.slice(1);
+};
